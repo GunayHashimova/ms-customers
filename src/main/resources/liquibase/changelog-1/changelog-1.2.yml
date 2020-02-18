@@ -1,0 +1,15 @@
+databaseChangeLog:
+  - changeSet:
+      id: Create Customer Sequence
+      author: gunay
+      changes:
+        - createSequence:
+            incrementBy: 50
+            sequenceName: customer_sequence
+  - changeSet:
+      id: Create Address Sequence
+      author: gunay
+      changes:
+        - createSequence:
+            incrementBy: 50
+            sequenceName: address_sequence

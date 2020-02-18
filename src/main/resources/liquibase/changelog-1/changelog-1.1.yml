@@ -1,0 +1,70 @@
+databaseChangeLog:
+  - changeSet:
+      id: Create Customer Table
+      author: gunay
+      changes:
+        - createTable:
+            tableName: customer
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: first_name
+                  type: varchar(255)
+              - column:
+                  name: last_name
+                  type: varchar(255)
+              - column:
+                  name: birthday
+                  type: date
+              - column:
+                  name: email
+                  type: varchar(255)
+              - column:
+                  name: pin_code
+                  type: varchar(255)
+              - column:
+                  name: updated_at
+                  type: timestamp
+              - column:
+                  name: created_at
+                  type: timestamp
+  - changeSet:
+      id: Create Address Table
+      author: gunay
+      changes:
+          - createTable:
+              tableName: address
+              columns:
+                - column:
+                    name: id
+                    type: BIGINT
+                    constraints:
+                      primaryKey: true
+                      nullable: false
+                - column:
+                    name: country
+                    type: varchar(255)
+                - column:
+                    name: city
+                    type: varchar(255)
+                - column:
+                    name: street
+                    type: varchar(255)
+                - column:
+                    name: customer_id
+                    type: BIGINT
+                    constraints:
+                      nullable: false
+                      foreignKeyName: fk_customer_id
+                      references: customer(id)
+                - column:
+                    name: updated_at
+                    type: timestamp
+                - column:
+                    name: created_at
+                    type: timestamp
